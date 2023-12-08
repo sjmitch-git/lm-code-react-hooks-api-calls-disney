@@ -43,13 +43,17 @@
   color: #fff;
   cursor: pointer;
   min-width: 50px;
+
+  &:disabled {
+    cursor: default;
+  }
 }
 
 .card-container {
-  max-width: 100%; 
-  display: flex; 
-  flex-wrap: wrap; 
-  justify-content: center
+  max-width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
 }
 
 .card {
