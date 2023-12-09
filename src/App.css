@@ -21,7 +21,7 @@
 
 .header__page-count {
   font-size: 1.8em;
-  margin: 5px;
+  margin: 5px auto 24px;
 }
 
 .navigation {
@@ -46,6 +46,8 @@
 
   &:disabled {
     cursor: default;
+    opacity: 0.5;
+    color: #ededed;
   }
 }
 

@@ -4,11 +4,11 @@ import Header from "./components/header";
 import CharacterContainer from "./components/character_container";
 import Navigation from "./components/navigation";
 import { DisneyCharacter } from "./disney_character";
+import { FavCharacterProvider } from "./FavCharacterContext";
 
 const App: React.FC = () => {
   const [currentPage, setCurrentPage] = useState<number>(1);
   const [characters, setCharacters] = useState<Array<DisneyCharacter>>([]);
-  const [characterFavourites, setCharacterFavourites] = useState<Array<number>>([]);
 
   useEffect(() => {
     const getCharacters = async (pageNumber: number) => {
@@ -20,15 +20,13 @@ const App: React.FC = () => {
   }, [currentPage]);
 
   return (
-    <div className="page">
-      <Header currentPage={currentPage} />
-      <Navigation currentPage={currentPage} setCurrentPage={setCurrentPage} />
-      <CharacterContainer
-        characters={characters}
-        characterFavourites={characterFavourites}
-        updateFavourites={setCharacterFavourites}
-      />
-    </div>
+    <FavCharacterProvider>
+      <div className="page">
+        <Header currentPage={currentPage} />
+        <Navigation currentPage={currentPage} setCurrentPage={setCurrentPage} />
+        <CharacterContainer characters={characters} />
+      </div>
+    </FavCharacterProvider>
   );
 };
 
